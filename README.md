@@ -6,7 +6,7 @@ PHP Implementation of Stable Marriage Problem
 
 The configuration is pretty simple... all you have to do is to open data.php, and edit it based on your problem.
 
-![Random stable marriage problem](https://imgur.com/tatR0YI)
+![Random stable marriage problem](https://i.ibb.co/whjMz0K/Screen-Shot-2020-04-07-at-8-37-44-AM.png)
 For example, for a problem like above the proper code should be as follows:
 
 ```php
