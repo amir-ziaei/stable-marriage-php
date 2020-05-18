@@ -50,7 +50,7 @@ class SMP
                             {
                                 $pos_new_proposer = $this->get_pos($proposer, $crush->preferences);
                                 $pos_old_proposer = $this->get_pos($crush->match, $crush->preferences);
-                                if(  $pos_new_proposer  <    $pos_old_proposer  ) // if the crush likes the proposer more than the previous match
+                                if(  $pos_new_proposer < $pos_old_proposer  ) // if the crush likes the proposer more than the previous match
                                 {
                                     $this->match_with_break_up($crush,$proposer);
                                     break;
