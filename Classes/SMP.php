@@ -19,10 +19,9 @@ class SMP
     protected function get_pos($obj, $array)
     {
         // calculating position of an object within array
-        foreach ($array as $key => $element) {
+        foreach ($array as $key => $element)
             if($element === $obj)
                 return $key;
-        }
     }
 
     protected function match($person1, $person2) {
@@ -41,29 +40,24 @@ class SMP
         // until the single members remain
         while( ! $this->is_done() )
         {
-            foreach( $this->group1->get_single_memebers() as $proposer ) //looping over the singles in group1
+            //looping over the singles in group1
+            foreach( $this->group1->get_single_memebers() as $proposer )
             {
-                    foreach( $proposer->preferences as $crush ) //catching the preferences of the proposer
+                //catching the preferences of the proposer
+                foreach( $proposer->preferences as $crush )
+                {
+                    //if the crush of the proposer is already taken
+                    if( ! $crush->is_single() )
                     {
-                            //if the crush of the proposer is already taken
-                            if( ! $crush->is_single() )
-                            {
-                                $pos_new_proposer = $this->get_pos($proposer, $crush->preferences);
-                                $pos_old_proposer = $this->get_pos($crush->match, $crush->preferences);
-                                if(  $pos_new_proposer < $pos_old_proposer  ) // if the crush likes the proposer more than the previous match
-                                {
-                                    $this->match_with_break_up($crush,$proposer);
-                                    break;
-                                }
-                            }
-                            //if the person is single
-                            else
-                            {
-                                $this->match($crush,$proposer);
-                                break;
-                            }
-
+                        $pos_new_proposer = $this->get_pos($proposer, $crush->preferences);
+                        $pos_old_proposer = $this->get_pos($crush->match, $crush->preferences);
+                        // if the crush likes the proposer more than the previous match
+                        if(  $pos_new_proposer < $pos_old_proposer  )
+                            { $this->match_with_break_up($crush,$proposer); break; }
                     }
+                    //if the person is single
+                    else { $this->match($crush,$proposer); break; }
+                }
             }
         }
 
