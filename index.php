@@ -2,7 +2,5 @@
 
 require_once('Bootstrap.php');
 
-$sets = new Sets($data);
-
-$sets->run_matching();
-$sets->display_results();
+$smp = new SMP($group1, $group2);
+$smp->resolve();

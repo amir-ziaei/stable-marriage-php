@@ -2,30 +2,37 @@
 
 Class Person
 {
-
+    static $index = 0;
     public $key;
     public $preferences = [];
-    public $match;
-
+    public $match = NULL;
+    public $id;
 
     public function __construct($key)
     {
         $this->key = $key;
+        $this->id = ++self::$index;
     }
 
-    public function set_preferences($person)
+    public function add_preference($person)
     {
-        $this->preferences[] = $person;
+        if($this->id !== $person->id)
+            $this->preferences[] = $person;
     }
 
-    public function is_matched()
+    public function is_single()
     {
-        return ($this->match != '') ? TRUE : FALSE;
+        return (gettype($this->match) === "object") ? FALSE : TRUE;
     }
-    
-    public function set_match($match)
+
+    public function match($person)
     {
-        $this->match = $match;
+        $this->match = $person;
+    }
+
+    public function dismatch()
+    {
+        $this->match = NULL;
     }
 
 }
