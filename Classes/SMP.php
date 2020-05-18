@@ -41,12 +41,12 @@ class SMP
         while ( ! $this->is_done() ):
 
             //looping over the singles in group1
-            foreach( $this->group1->get_single_memebers() as $proposer )
+            foreach ( $this->group1->get_single_memebers() as $proposer )
 
-                    foreach( $proposer->preferences as $crush ): //catching the preferences of the proposer
+                    foreach ( $proposer->preferences as $crush ): //catching the preferences of the proposer
 
                         //if the crush of the proposer is already taken
-                        if( ! $crush->is_single() )
+                        if ( ! $crush->is_single() )
                         {
                             $pos_new_proposer = $this->get_pos($proposer, $crush->preferences);
                             $pos_old_proposer = $this->get_pos($crush->match, $crush->preferences);
@@ -54,7 +54,7 @@ class SMP
                             if(  $pos_new_proposer < $pos_old_proposer  )
                                 { $this->match_with_break_up($crush,$proposer); break; }
                         }
-                        //if the person is single
+                        //if the crush is single
                         else { $this->match($crush,$proposer); break; }
 
                     endforeach;
