@@ -31,4 +31,9 @@ Class Person
         $this->match = NULL;
     }
 
+    public function display()
+    {
+        echo $this->key." => ".$this->match->key."\n";
+    }
+
 }

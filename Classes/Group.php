@@ -40,7 +40,7 @@ Class Group
     public function display()
     {
         foreach($this->members as $person)
-            print_r($person->key." -> ".$person->match->key."\n");
+            $person->display();
     }
 
 }
