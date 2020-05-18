@@ -38,28 +38,26 @@ class SMP
     protected function run_matching()
     {
         // until the single members remain
-        while( ! $this->is_done() )
-        {
-            //looping over the singles in group1
-            foreach( $this->group1->get_single_memebers() as $proposer )
-            {
-                //catching the preferences of the proposer
-                foreach( $proposer->preferences as $crush )
-                {
-                    //if the crush of the proposer is already taken
-                    if( ! $crush->is_single() )
-                    {
-                        $pos_new_proposer = $this->get_pos($proposer, $crush->preferences);
-                        $pos_old_proposer = $this->get_pos($crush->match, $crush->preferences);
-                        // if the crush likes the proposer more than the previous match
-                        if(  $pos_new_proposer < $pos_old_proposer  )
-                            { $this->match_with_break_up($crush,$proposer); break; }
-                    }
-                    //if the person is single
-                    else { $this->match($crush,$proposer); break; }
-                }
-            }
-        }
+        while( ! $this->is_done() ):
+
+        //looping over the singles in group1
+        foreach( $this->group1->get_single_memebers() as $proposer )
+
+                    foreach( $proposer->preferences as $crush ): //catching the preferences of the proposer
+                        //if the crush of the proposer is already taken
+                        if( ! $crush->is_single() )
+                        {
+                            $pos_new_proposer = $this->get_pos($proposer, $crush->preferences);
+                            $pos_old_proposer = $this->get_pos($crush->match, $crush->preferences);
+                            // if the crush likes the proposer more than the previous match
+                            if(  $pos_new_proposer < $pos_old_proposer  )
+                                { $this->match_with_break_up($crush,$proposer); break; }
+                        }
+                        //if the person is single
+                        else { $this->match($crush,$proposer); break; }
+                    endforeach;
+
+        endwhile;
 
     }
 
