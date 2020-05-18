@@ -38,12 +38,13 @@ class SMP
     protected function run_matching()
     {
         // until the single members remain
-        while( ! $this->is_done() ):
+        while ( ! $this->is_done() ):
 
-        //looping over the singles in group1
-        foreach( $this->group1->get_single_memebers() as $proposer )
+            //looping over the singles in group1
+            foreach( $this->group1->get_single_memebers() as $proposer )
 
                     foreach( $proposer->preferences as $crush ): //catching the preferences of the proposer
+
                         //if the crush of the proposer is already taken
                         if( ! $crush->is_single() )
                         {
@@ -55,6 +56,7 @@ class SMP
                         }
                         //if the person is single
                         else { $this->match($crush,$proposer); break; }
+
                     endforeach;
 
         endwhile;
