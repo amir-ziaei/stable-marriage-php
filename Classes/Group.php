@@ -27,7 +27,6 @@ Class Group
         return $return;
     }
 
-
     public function has_single()
     {
         $has_single = FALSE;
