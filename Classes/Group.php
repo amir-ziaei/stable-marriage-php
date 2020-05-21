@@ -29,12 +29,10 @@ Class Group
 
     public function has_single()
     {
-        $has_single = FALSE;
         foreach ($this->members as $person)
             if( $person->is_single() )
-                $has_single = TRUE;
-
-        return $has_single;
+                return TRUE;
+        return FALSE;
     }
 
     public function display()
