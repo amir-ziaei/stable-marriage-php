@@ -41,7 +41,7 @@ class SMP
         while ( ! $this->is_done() ):
 
             //looping over the singles in group1
-            foreach ( $this->group1->get_single_memebers() as $proposer )
+            foreach ( $this->group1->get_single_members() as $proposer )
 
                     foreach ( $proposer->preferences as $crush ): //catching the preferences of the proposer
 

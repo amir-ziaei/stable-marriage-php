@@ -18,7 +18,7 @@ Class Group
                 return $person;
     }
 
-    public function get_single_memebers()
+    public function get_single_members()
     {
         $return = [];
         foreach($this->members as $person)
