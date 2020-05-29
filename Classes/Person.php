@@ -1,6 +1,6 @@
 <?php
 
-Class Person
+class Person
 {
     public $key;
     public $preferences = [];
@@ -33,7 +33,7 @@ Class Person
 
     public function display()
     {
-        echo $this->key." => ".$this->match->key."\n";
+        echo $this->key . " => " . $this->match->key . "\n";
     }
 
 }
