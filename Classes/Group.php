@@ -1,6 +1,6 @@
 <?php
 
-Class Group
+class Group
 {
 
     public $members = [];
@@ -11,34 +11,36 @@ Class Group
         $this->members[] = $member;
     }
 
-    public function member($key)
+    public function get_member($key)
     {
-        foreach($this->members as $person)
-            if($person->key == $key)
+        foreach ($this->members as $person)
+            if ($person->key == $key)
                 return $person;
     }
 
     public function get_single_members()
     {
-        $return = [];
-        foreach($this->members as $person)
-            if($person->is_single())
-                $return[] = $person;
-        return $return;
+        $singles = [];
+        foreach ($this->members as $member)
+            if ($member->is_single())
+                $singles[] = $member;
+
+        return $singles;
     }
 
     public function has_single()
     {
         foreach ($this->members as $person)
-            if( $person->is_single() )
+            if ($person->is_single())
                 return TRUE;
+
         return FALSE;
     }
 
     public function display()
     {
-        foreach($this->members as $person)
-            $person->display();
+        foreach ($this->members as $member)
+            $member->display();
     }
 
 }
